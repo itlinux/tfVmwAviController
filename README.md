@@ -69,7 +69,7 @@ git clone https://github.com/tacobayle/tfVmwAviController
 cd tfVmwAviController
 terraform init
 ```
-- Change the variables.tf according to your environment
+- Change the variables.tf and environment variables according to your environment
 - Run the repo
 ```shell
 /bin/bash apply.sh
