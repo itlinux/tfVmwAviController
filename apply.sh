@@ -57,7 +57,7 @@ else
 fi
 terraform init 2> init.stderr
 tf_init_check
-terraform apply -auto-approve -var-file=../controllers.json -var-file=../avi_config.json -var-file=../.password.json 2> apply.stderr
+terraform apply -auto-approve -var-file=../controllers.json -var-file=../avi_config.json -var-file=../.password.json -compact-warnings 2> apply.stderr
 tf_apply_check
 cd -
 #
