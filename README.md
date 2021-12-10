@@ -24,7 +24,7 @@ Terraform Plan has/have been tested against:
 https://learn.hashicorp.com/tutorials/terraform/install-cli
 ```
 
-- version
+- version tested
 ```shell
 Terraform v1.0.6
 on linux_amd64
@@ -33,7 +33,7 @@ on linux_amd64
 + provider registry.terraform.io/hashicorp/vsphere v2.0.2
 ```
 
-### Avi Version
+### Avi Version tested
 
 ```
 controller-21.1.2-9124.ova
