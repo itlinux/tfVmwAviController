@@ -34,7 +34,7 @@ variable "content_library" {
 }
 
 variable "dhcp" {
-  default = false
+  default = true
 }
 
 variable "avi_ip4_addresses" {
@@ -54,7 +54,7 @@ variable "avi_version" {
 }
 
 variable "avi_cluster" {
-  default = true
+  default = false
 }
 
 variable "avi_dns_server_ips" {
