@@ -74,7 +74,7 @@ resource "vsphere_virtual_machine" "controller_static_cluster" {
 
   vapp {
     properties = {
-      "mgmt-ip"     = split(", ", var.avi_ip4_addresses)[count.index + 0]
+      "mgmt-ip"     = split(",", replace(var.avi_ip4_addresses, " ", ""))[count.index]
       "mgmt-mask"   = var.network_mask
       "default-gw"  = var.gateway4
     }
@@ -107,7 +107,7 @@ resource "vsphere_virtual_machine" "controller_static_standalone" {
 
   vapp {
     properties = {
-      "mgmt-ip"     = var.avi_ip4_addresses
+      "mgmt-ip"     = split(",", replace(var.avi_ip4_addresses, " ", ""))[count.index]
       "mgmt-mask"   = var.network_mask
       "default-gw"  = var.gateway4
     }
