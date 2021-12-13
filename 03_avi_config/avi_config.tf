@@ -20,12 +20,12 @@ resource "avi_systemconfiguration" "avi_system" {
   }
 
   ntp_configuration {
-    ntp_servers {
+    dynamic ntp_servers {
+      for_each = flatten(split(",", replace(var.avi_ntp_server_ips, " ", "")))
       key_number = 1
-      dynamic server {
-        for_each = flatten(split(",", replace(var.avi_ntp_server_ips, " ", "")))
-        content {
-          addr = server.value
+      content {
+        server {
+          addr = ntp_servers.value
           type = "V4"
         }
       }
