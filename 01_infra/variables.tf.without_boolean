@@ -33,10 +33,6 @@ variable "content_library" {
   }
 }
 
-variable "dhcp" {
-  default = false
-}
-
 variable "avi_ip4_addresses" {
   default = "10.206.112.55, 10.206.112.56, 10.206.112.57"
 }
@@ -51,10 +47,6 @@ variable "gateway4" {
 
 variable "avi_version" {
   default = "21.1.2"
-}
-
-variable "avi_cluster" {
-  default = true
 }
 
 variable "avi_dns_server_ips" {
