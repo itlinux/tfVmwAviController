@@ -1,7 +1,7 @@
 # tfVmwAviController
 
 ## Goal
-Terraform | Deploy Avi Controller Cluster in vCenter environment and boostrap it.
+Terraform | Deploy a brand new Avi Controller (standalone or cluster) in vCenter environment and boostrap it.
 
 ## Prerequisites:
 - Terraform installed in the orchestrator VM
