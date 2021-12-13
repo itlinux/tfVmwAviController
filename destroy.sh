@@ -1,3 +1,3 @@
 cd 01_infra
-terraform destroy -auto-approve
+terraform destroy -auto-approve -no-color
 cd -
