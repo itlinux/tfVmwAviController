@@ -72,7 +72,7 @@ if [ -z "$TF_VAR_avi_version" ]; then
 else
   sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
 fi
-terraform init -no-color2> init.stderr
+terraform init -no-color 2> init.stderr
 tf_init_check
 terraform apply -auto-approve -no-color -var-file=../controllers.json -var-file=../avi_config.json -compact-warnings 2> apply.stderr
 tf_apply_check
