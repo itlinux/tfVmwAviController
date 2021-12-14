@@ -11,5 +11,5 @@
 
 - version: 21.1.2, cluster: false, dhcp: true, avi_password: auto // PASSED
 - version: 21.1.2, cluster: false, dhcp: true, avi_password: static // PASSED
-- version: 21.1.2, cluster: false, dhcp: false, avi_password: auto // ON-GOING
+- version: 21.1.2, cluster: false, dhcp: false, avi_password: auto // PASSED
 - version: 21.1.2, cluster: false, dhcp: false, avi_password: static // PASSED
