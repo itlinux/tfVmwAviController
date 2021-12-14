@@ -13,7 +13,7 @@ while [ $attempt -ne $retry ]; do
     echo "controller ready"
     break
   else
-    echo "controller not ready yet - waiting for $pause and retry"
+    echo "controller not ready yet - waiting for $pause seconds and retry"
     ((attempt++))
     sleep $pause
   fi
