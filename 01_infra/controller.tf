@@ -133,7 +133,7 @@ resource "null_resource" "wait_https_controller_dhcp_standalone" {
 }
 
 resource "null_resource" "wait_https_controller_static_cluster" {
-  depends_on = [vsphere_virtual_machine.controller_dhcp_cluster]
+  depends_on = [vsphere_virtual_machine.controller_static_cluster]
   count            = (var.dhcp == false && var.avi_cluster== true ? 1 : 0)
 
   provisioner "local-exec" {
