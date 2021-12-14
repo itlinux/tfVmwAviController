@@ -54,7 +54,7 @@ variable "avi_version" {
 }
 
 variable "avi_cluster" {
-  default = true
+  default = false
 }
 
 variable "avi_dns_server_ips" {
