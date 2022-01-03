@@ -68,7 +68,7 @@ cd -
 #
 cd 02_avi_username
 if [ -z "$TF_VAR_avi_version" ]; then
-  sed -i -e 's/version_to_be_replaced/"21.1.3"/g' provider.tf
+  sed -i -e 's/version_to_be_replaced/"21.1.2"/g' provider.tf
 else
   sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
 fi
@@ -80,7 +80,7 @@ cd -
 #
 cd 03_avi_config
 if [ -z "$TF_VAR_avi_version" ]; then
-  sed -i -e 's/version_to_be_replaced/"21.1.3"/g' provider.tf
+  sed -i -e 's/version_to_be_replaced/"21.1.2"/g' provider.tf
 else
   sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
 fi
@@ -92,7 +92,7 @@ cd -
 #
 cd 04_avi_cluster
 if [ -z "$TF_VAR_avi_version" ]; then
-  sed -i -e 's/version_to_be_replaced/"21.1.3"/g' provider.tf
+  sed -i -e 's/version_to_be_replaced/"21.1.2"/g' provider.tf
 else
   sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
 fi
