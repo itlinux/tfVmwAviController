@@ -1,6 +1,7 @@
 resource "vsphere_virtual_machine" "controller_dhcp_cluster" {
   count            = (var.dhcp == true && var.avi_cluster== true ? 3 : 0)
   name             = "controller-${count.index}"
+  folder = var.vcenter_folder == null ? null : vsphere_folder.folder[0].path
   datastore_id     = data.vsphere_datastore.datastore.id
   resource_pool_id = data.vsphere_resource_pool.pool.id
   network_interface {
@@ -26,6 +27,7 @@ resource "vsphere_virtual_machine" "controller_dhcp_cluster" {
 resource "vsphere_virtual_machine" "controller_dhcp_standalone" {
   count            = (var.dhcp == true && var.avi_cluster== false ? 1 : 0)
   name             = "controller-${count.index}"
+  folder = var.vcenter_folder == null ? null : vsphere_folder.folder[0].path
   datastore_id     = data.vsphere_datastore.datastore.id
   resource_pool_id = data.vsphere_resource_pool.pool.id
   network_interface {
@@ -51,6 +53,7 @@ resource "vsphere_virtual_machine" "controller_dhcp_standalone" {
 resource "vsphere_virtual_machine" "controller_static_cluster" {
   count            = (var.dhcp == false && var.avi_cluster== true ? 3 : 0)
   name             = "controller-${count.index}"
+  folder = var.vcenter_folder == null ? null : vsphere_folder.folder[0].path
   datastore_id     = data.vsphere_datastore.datastore.id
   resource_pool_id = data.vsphere_resource_pool.pool.id
   network_interface {
@@ -84,6 +87,7 @@ resource "vsphere_virtual_machine" "controller_static_cluster" {
 resource "vsphere_virtual_machine" "controller_static_standalone" {
   count            = (var.dhcp == false && var.avi_cluster== false ? 1 : 0)
   name             = "controller-${count.index}"
+  folder = var.vcenter_folder == null ? null : vsphere_folder.folder[0].path
   datastore_id     = data.vsphere_datastore.datastore.id
   resource_pool_id = data.vsphere_resource_pool.pool.id
   network_interface {

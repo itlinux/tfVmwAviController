@@ -27,6 +27,10 @@ variable "vcenter_network" {
   default = "vxw-dvs-34-virtualwire-3-sid-6120002-wdc-06-vc12-avi-mgmt"
 }
 
+variable "vcenter_folder" {
+  default = "my-folder"
+}
+
 variable "content_library" {
   default = {
     basename = "content_library_tf_"

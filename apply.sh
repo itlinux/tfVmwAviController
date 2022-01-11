@@ -58,8 +58,6 @@ EOT
   unset TF_VAR_avi_cluster
 fi
 #
-#
-#
 terraform init -no-color 2> init.stderr
 tf_init_check
 terraform apply -auto-approve -no-color 2> apply.stderr
@@ -67,11 +65,11 @@ tf_apply_check
 cd -
 #
 cd 02_avi_username
-if [ -z "$TF_VAR_avi_version" ]; then
-  sed -i -e 's/version_to_be_replaced/"21.1.3"/g' provider.tf
-else
-  sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
-fi
+#if [ -z "$TF_VAR_avi_version" ]; then
+#  sed -i -e 's/version_to_be_replaced/"21.1.3"/g' provider.tf
+#else
+#  sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
+#fi
 terraform init -no-color 2> init.stderr
 tf_init_check
 terraform apply -auto-approve -no-color -var-file=../controllers.json -var-file=../avi_config.json -compact-warnings 2> apply.stderr
@@ -79,11 +77,11 @@ tf_apply_check
 cd -
 #
 cd 03_avi_config
-if [ -z "$TF_VAR_avi_version" ]; then
-  sed -i -e 's/version_to_be_replaced/"21.1.3"/g' provider.tf
-else
-  sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
-fi
+#if [ -z "$TF_VAR_avi_version" ]; then
+#  sed -i -e 's/version_to_be_replaced/"21.1.3"/g' provider.tf
+#else
+#  sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
+#fi
 terraform init -no-color > init.stdout 2> init.stderr
 tf_init_check
 terraform apply -auto-approve -no-color -var-file=../controllers.json -var-file=../avi_config.json -var-file=../.password.json -compact-warnings 2> apply.stderr
@@ -91,11 +89,11 @@ tf_apply_check
 cd -
 #
 cd 04_avi_cluster
-if [ -z "$TF_VAR_avi_version" ]; then
-  sed -i -e 's/version_to_be_replaced/"21.1.3"/g' provider.tf
-else
-  sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
-fi
+#if [ -z "$TF_VAR_avi_version" ]; then
+#  sed -i -e 's/version_to_be_replaced/"21.1.3"/g' provider.tf
+#else
+#  sed -i -e "s/version_to_be_replaced/\"$TF_VAR_avi_version\"/g" provider.tf
+#fi
 terraform init -no-color 2> init.stderr
 tf_init_check
 terraform apply -auto-approve -no-color -var-file=../controllers.json -var-file=../avi_config.json -var-file=../.password.json -compact-warnings 2> apply.stderr
