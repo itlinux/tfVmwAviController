@@ -1,6 +1,7 @@
-resource "avi_systemconfiguration" "avi_system" {
+resource "" "avi_system" {
   common_criteria_mode      = false
   uuid                      = "default-uuid"
+  default_license_tier = "ENTERPRISE"
   welcome_workflow_complete = true
 
   dns_configuration {
