@@ -103,11 +103,11 @@ unset TF_VAR_avi_dns_server_ips ; until [ ! -z "$TF_VAR_avi_dns_server_ips" ] ; 
 unset TF_VAR_avi_ntp_server_ips ; until [ ! -z "$TF_VAR_avi_ntp_server_ips" ] ; do echo -n "enter NTP IPs separated by commas (like: 10.206.8.130, 10.206.8.131): " ; read -r TF_VAR_avi_ntp_server_ips ; done
 clear
 # Avi version
-unset TF_VAR_avi_version ; assign_var_from_json_file "Avi version" "avi_versions.json" ; TF_VAR_avi_version=$(cat .var)
+unset TF_VAR_avi_version ; assign_var_from_json_file "Avi version" "bash/avi_versions.json" ; TF_VAR_avi_version=$(cat .var)
 # Avi cluster
 assign_var_boolean "Avi cluster" "avi_cluster" "../booleans.json"
 # Avi license
-unset TF_VAR_avi_default_license_tier ; assign_var_from_json_file "Avi License" "avi_license.json" ; TF_VAR_avi_default_license_tier=$(cat .var)
+unset TF_VAR_avi_default_license_tier ; assign_var_from_json_file "Avi License" "bash/avi_license.json" ; TF_VAR_avi_default_license_tier=$(cat .var)
 #
 #
 #
