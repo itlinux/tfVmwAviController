@@ -107,6 +107,7 @@ clear
 unset TF_VAR_avi_version ; assign_var_from_json_file "Avi version" "bash/avi_versions.json" ; TF_VAR_avi_version=$(cat .var)
 # avi url
 unset TF_VAR_avi_controller_url ; until [ ! -z "$TF_VAR_avi_controller_url" ] ; do echo -n "Avi download URL: " ; read -r TF_VAR_avi_controller_url ; done
+echo $TF_VAR_avi_controller_url
 # Avi cluster
 assign_var_boolean "Avi cluster" "avi_cluster" "booleans.json"
 # Avi license
