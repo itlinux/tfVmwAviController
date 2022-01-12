@@ -89,6 +89,7 @@ unset TF_VAR_vcenter_cluster ; assign_var_from_json_file "vCenter cluster" "clus
 unset TF_VAR_vcenter_datastore ; assign_var_from_json_file "vCenter datastore" "datastores.json" ; TF_VAR_vcenter_datastore=$(cat .var)
 # vcenter folder
 unset TF_VAR_vcenter_folder ; until [ ! -z "$TF_VAR_vcenter_folder" ] ; do echo -n "enter a folder vCenter name: " ;  read -r TF_VAR_vcenter_folder ; done
+clear
 # network
 unset TF_VAR_vcenter_network ; assign_var_from_json_file "vCenter network" "networks.json" ; TF_VAR_vcenter_network=$(cat .var)
 # management network dhcp
