@@ -1,4 +1,4 @@
-resource "" "avi_system" {
+resource "avi_systemconfiguration" "avi_system" {
   common_criteria_mode      = false
   uuid                      = "default-uuid"
   default_license_tier = "ENTERPRISE"
