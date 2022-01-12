@@ -22,41 +22,41 @@ cd 01_infra
 #
 # Arcade boolean values
 #
-if [[ $TF_VAR_dhcp == "true" || $TF_VAR_dhcp == "false" ]] ; then
-  cp variables.tf.without_boolean varaiables.tf
-  if [[ $TF_VAR_dhcp == "true" ]] ; then
-    tee variables.tf > /dev/null <<EOT
-variable "dhcp" {
-  default = true
-}
-EOT
-  fi
-  if [[ $TF_VAR_dhcp == "false" ]] ; then
-    tee -a variables.tf > /dev/null <<EOT
-variable "dhcp" {
-  default = false
-}
-EOT
-  fi
-  unset TF_VAR_dhcp
-fi
-if [[ $TF_VAR_avi_cluster == "true" || $TF_VAR_avi_cluster == "false" ]] ; then
-  if [[ $TF_VAR_avi_cluster == "true" ]] ; then
-    tee -a variables.tf > /dev/null <<EOT
-variable "avi_cluster" {
-  default = true
-}
-EOT
-  fi
-  if [[ $TF_VAR_avi_cluster == "false" ]] ; then
-    tee -a variables.tf > /dev/null <<EOT
-variable "avi_cluster" {
-  default = false
-}
-EOT
-  fi
-  unset TF_VAR_avi_cluster
-fi
+#if [[ $TF_VAR_dhcp == "true" || $TF_VAR_dhcp == "false" ]] ; then
+#  cp variables.tf.without_boolean varaiables.tf
+#  if [[ $TF_VAR_dhcp == "true" ]] ; then
+#    tee variables.tf > /dev/null <<EOT
+#variable "dhcp" {
+#  default = true
+#}
+#EOT
+#  fi
+#  if [[ $TF_VAR_dhcp == "false" ]] ; then
+#    tee -a variables.tf > /dev/null <<EOT
+#variable "dhcp" {
+#  default = false
+#}
+#EOT
+#  fi
+#  unset TF_VAR_dhcp
+#fi
+#if [[ $TF_VAR_avi_cluster == "true" || $TF_VAR_avi_cluster == "false" ]] ; then
+#  if [[ $TF_VAR_avi_cluster == "true" ]] ; then
+#    tee -a variables.tf > /dev/null <<EOT
+#variable "avi_cluster" {
+#  default = true
+#}
+#EOT
+#  fi
+#  if [[ $TF_VAR_avi_cluster == "false" ]] ; then
+#    tee -a variables.tf > /dev/null <<EOT
+#variable "avi_cluster" {
+#  default = false
+#}
+#EOT
+#  fi
+#  unset TF_VAR_avi_cluster
+#fi
 #
 terraform init -no-color 2> init.stderr
 tf_init_check

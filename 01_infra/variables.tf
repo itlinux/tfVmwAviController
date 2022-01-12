@@ -53,20 +53,20 @@ variable "gateway4" {
   default = "10.206.112.1"
 }
 
+variable "avi_dns_server_ips" {
+  default = "8.8.8.8, 10.206.8.130, 10.206.8.131"
+}
+
+variable "avi_ntp_server_ips" {
+  default = "10.206.8.130, 10.206.8.131, 10.206.8.132"
+}
+
 variable "avi_version" {
   default = "21.1.3"
 }
 
 variable "avi_cluster" {
   default = false
-}
-
-variable "avi_dns_server_ips" {
-    default = "8.8.8.8, 10.206.8.130, 10.206.8.131"
-}
-
-variable "avi_ntp_server_ips" {
-  default = "10.206.8.130, 10.206.8.131, 10.206.8.132"
 }
 
 variable "avi_current_password" {
