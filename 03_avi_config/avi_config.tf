@@ -1,7 +1,7 @@
 resource "avi_systemconfiguration" "avi_system" {
   common_criteria_mode      = false
   uuid                      = "default-uuid"
-  default_license_tier = "ENTERPRISE"
+  default_license_tier = tonumber(split(".", var.avi_version)[0]) >= tonumber("21") && tonumber(split(".", var.avi_version)["1"]) >= tonumber("1") && tonumber(split(".", var.avi_version)["2"]) >= tonumber("3") && var.avi_default_license_tier != "" ? var.avi_default_license_tier : "ENTERPRISE"
   welcome_workflow_complete = true
 
   dns_configuration {

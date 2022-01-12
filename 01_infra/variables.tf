@@ -77,6 +77,10 @@ variable "avi_tenant" {
   default = "admin"
 }
 
+variable "avi_default_license_tier" {
+  default = "ENTERPRISE_WITH_CLOUD_SERVICES"
+}
+
 variable "controller" {
   default = {
     cpu = 8

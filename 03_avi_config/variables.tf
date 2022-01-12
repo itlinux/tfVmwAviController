@@ -4,3 +4,4 @@ variable "avi_tenant" {}
 variable "avi_password" {}
 variable "avi_dns_server_ips" {}
 variable "avi_ntp_server_ips" {}
+variable "avi_default_license_tier" {}
