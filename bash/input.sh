@@ -111,7 +111,7 @@ unset TF_VAR_avi_default_license_tier ; assign_var_from_json_file "Avi License" 
 #
 #
 #
-cd ../01_infra
+cd 01_infra
 terraform init -no-color 2> init.stderr
 tf_init_check
 terraform apply -auto-approve -var-file=../booleans.json 2> apply.stderr
