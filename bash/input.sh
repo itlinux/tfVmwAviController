@@ -134,6 +134,7 @@ terraform init -no-color > init.stdout 2> init.stderr
 tf_init_check
 terraform apply -auto-approve -no-color -var-file=../controllers.json -var-file=../avi_config.json -var-file=../.password.json -compact-warnings 2> apply.stderr
 tf_apply_check
+cd ..
 #
 cd 04_avi_cluster
 terraform init -no-color 2> init.stderr
