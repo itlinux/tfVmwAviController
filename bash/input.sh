@@ -75,7 +75,7 @@ tf_apply_check () {
 }
 #
 rm -f booleans.json ; echo "{}" | tee booleans.json >/dev/null
-unset vsphere_server ; until [ ! -z "$vsphere_server" ] ; do echo -n "vsphere server FQDN: " ; read -r vsphere_server ; done
+unset vsphere_server ; until [ ! -z "$vsphere_server" ] ; do echo -n "vsphere server FQDN: " ; read -r vsphere_server ; export done
 unset vsphere_username ; until [ ! -z "$vsphere_username" ] ; do echo -n "vsphere username: " ; read -r vsphere_username ; done
 unset vsphere_password ; until [ ! -z "$vsphere_password" ] ; do echo -n "vsphere password: " ; read -s vsphere_password ; echo ; done
 run_cmd 'curl https://raw.githubusercontent.com/tacobayle/bash/master/vcenter/get_vcenter.sh -o get_vcenter.sh --silent ; test $(ls -l get_vcenter.sh | awk '"'"'{print $5}'"'"') -gt 0'
@@ -106,10 +106,11 @@ clear
 # Avi version
 unset TF_VAR_avi_version ; assign_var_from_json_file "Avi version" "bash/avi_versions.json" ; TF_VAR_avi_version=$(cat .var)
 # avi url
-unset TF_VAR_avi_controller_url ; until [ ! -z "$TF_VAR_avi_controller_url" ] ; do echo -n "Avi download URL: " ; read -r TF_VAR_avi_controller_url ; done
+unset TF_VAR_avi_controller_url ; until [ ! -z "$TF_VAR_avi_controller_url" ] ; do echo -n "Avi download URL: " ; read -r TF_VAR_avi_controller_url ; export TF_VAR_avi_controller_url ; done
 echo $TF_VAR_avi_controller_url
 # Avi cluster
 assign_var_boolean "Avi cluster" "avi_cluster" "booleans.json"
+clear
 # Avi license
 unset TF_VAR_avi_default_license_tier ; assign_var_from_json_file "Avi License" "bash/avi_license.json" ; TF_VAR_avi_default_license_tier=$(cat .var)
 #
@@ -128,6 +129,12 @@ tf_init_check
 terraform apply -auto-approve -no-color -var-file=../controllers.json -var-file=../avi_config.json -var-file=../booleans.json -compact-warnings 2> apply.stderr
 tf_apply_check
 cd ..
+#
+cd 03_avi_config
+terraform init -no-color > init.stdout 2> init.stderr
+tf_init_check
+terraform apply -auto-approve -no-color -var-file=../controllers.json -var-file=../avi_config.json -var-file=../.password.json -compact-warnings 2> apply.stderr
+tf_apply_check
 #
 cd 04_avi_cluster
 terraform init -no-color 2> init.stderr
