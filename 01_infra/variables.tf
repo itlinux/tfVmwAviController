@@ -1,4 +1,3 @@
-#
 # Environment Variables
 #
 variable "vsphere_username" {}
@@ -11,6 +10,9 @@ variable "vsphere_server" {
   default = "wdc-06-vc12.oc.vmware.com"
 }
 
+variable "folder_name" {
+  default = "remo"
+}
 variable "vcenter_dc" {
   default = "wdc-06-vc12"
 }
@@ -66,7 +68,6 @@ variable "avi_ntp_server_ips" {
 }
 
 variable "avi_current_password" {
-  default = "58NFaGDJm(PJH0G"
 }
 
 variable "avi_tenant" {

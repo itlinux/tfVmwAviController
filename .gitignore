@@ -3,3 +3,6 @@ terraform.tfstate
 terraform.tfstate.backup
 .terraform.tfstate.lock.info
 .idea/
+.password*
+.DS_Store
+avi_config.json
