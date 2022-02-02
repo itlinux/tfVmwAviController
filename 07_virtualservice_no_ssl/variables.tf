@@ -8,13 +8,13 @@ variable "avi_version" {
   default = "21.1.3"
 }
 variable "avi_tenant" {
-  default = "admin"
+  default = "remo"
 }
 variable "cloud_name" {
   default = "vcenter"
 }
 variable "tenant" {
-  default = "admin"
+  default = "remo"
 }
 variable "avi_terraform_vs_vip" {
   default = "10.206.115.115"
@@ -57,4 +57,10 @@ variable "enable_http2" {
 }
 variable "enable_ssl" {
   default = "false"
+}
+variable "string_group_name" {
+  default = "System-Compressible-Content-Types-Demo"
+}
+variable "compression_setting" {
+  default = false
 }

@@ -1,5 +1,5 @@
 data "avi_tenant" "default_tenant" {
-  name = "admin"
+  name =  var.avi_tenant
 }
 data "avi_networkprofile" "system_tcp_profile" {
   name = var.systemprofile
@@ -9,7 +9,7 @@ data "avi_cloud" "default_cloud" {
 }
 
 resource "avi_stringgroup" "stringgroup1" {
-  name = "System-Compressible-Content-Types"
+  name = var.string_group_name
   kv {
       key = "text/html"
   }
@@ -32,7 +32,7 @@ resource "avi_applicationprofile" "application_profile1" {
       server_side_redirect_to_https = false
       x_forwarded_proto_enabled = false
       compression_profile {
-        compression = false
+        compression = var.compression_setting
         remove_accept_encoding_header = true
         type = "AUTO_COMPRESSION"
         compressible_content_ref = avi_stringgroup.stringgroup1.id
