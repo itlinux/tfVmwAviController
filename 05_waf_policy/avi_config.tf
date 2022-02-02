@@ -129,23 +129,28 @@ resource "avi_wafpolicy" "custom_waf_policy" {
       rule_id      = "10007"
       tags         = []
     }
-  }
-}
+    rules {
+      enable       = true
+      index        = 7
+      is_sensitive = false
+      name         = "22060 | Demo vulnerability"
+      rule         = "SecRule REQUEST_HEADERS:Host \"192.168.1.100\" \"id:'1011', phase:1,t:none,nolog,pass,ctl:ruleRemoveById=960017\""
+      rule_id      = "10008"
+      tags         = []
+    }
+    rules {
+      enable       = true
+      index        = 8
+      is_sensitive = false
+      name         = "22061 | Log4j2-Demo 1 vulnerability"
+      rule         = <<EOT
+      SecRule REQUEST_LINE|ARGS|ARGS_NAMES|REQUEST_COOKIES|REQUEST_COOKIES_NAMES|REQUEST_BODY|REQUEST_HEADERS|XML:/*|XML://@* "@rx \$${(?:jndi|java):" "id:4022060, phase:2, block, t:none, t:lowercase, t:urlDecodeUni, msg:'CVE-2021-44228 log4j2 vulnerability', tag:'language-java', tag:'attack-multi', tag:'attack-rce', tag:'paranoia-level/1', tag:'CAPEC-152', tag:'CAPEC-242', tag:'CRS-group-402', ver:'AVI_CRS/2021_3', severity:'CRITICAL', multiMatch, setvar:'tx.anomaly_score_pl1=+%%{tx.critical_anomaly_score}', setvar:'tx.rce_score=+%%{tx.critical_anomaly_score}'" 
+       EOT
+      rule_id      = "10009"
+      tags         = []
 
-# data "avi_cloud" "waf_cloud" {
-#   name = var.cloud_name
-# }
-# resource "avi_serviceenginegroup" "waf_cloud_group" {
-#   accelerated_networking  = var.accelerated_networking
-#   buffer_se               = 0
-#   cloud_ref               = data.avi_cloud.waf_cloud.id
-#   instance_flavor         = var.inst_flavor
-#   license_tier            = "ENTERPRISE"
-#   license_type            = "LIC_CORES"
-#   name                    = var.se_group_name
-#   se_bandwidth_type       = "SE_BANDWIDTH_UNLIMITED"
-#   se_deprovision_delay    = 5
-#   se_name_prefix          = var.se_prefix
-#   use_hyperthreaded_cores = var.hyperthreaded_cores
-#   se_dp_max_hb_version    = 2
-# }
+     }
+       
+   }
+
+}

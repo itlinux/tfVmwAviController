@@ -6,3 +6,5 @@ terraform.tfstate.backup
 .password*
 .DS_Store
 avi_config.json
+*.hcl
+*.tfvars

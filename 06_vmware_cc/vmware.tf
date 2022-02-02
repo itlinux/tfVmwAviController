@@ -1,10 +1,3 @@
-provider "avi" {
-  avi_username   = var.avi_username
-  avi_password   = var.avi_password
-  avi_controller = var.avi_controller
-  avi_tenant     = var.tenant
-  avi_version    = var.avi_version
-}
 resource "avi_cloud" "vmware_cloud_tf" {
   name         = var.cloud_name
   vtype        = "CLOUD_VCENTER"
@@ -20,5 +13,27 @@ resource "avi_cloud" "vmware_cloud_tf" {
   }
   license_tier = var.avi_license
   license_type = var.vcenter_license_type
-  tenant_ref   = "admin"
+  tenant_ref   = var.tenant
+}
+
+data "avi_errorpagebody" "default_error_page" {
+  name = "Custom-Error-Page"
+}
+resource "avi_errorpageprofile" "cop_errorpage" {
+  name = "CoP-Error-Page"
+ error_pages {
+    enable              = true
+    error_page_body_ref = data.avi_errorpagebody.default_error_page.id
+    index               = 0
+
+    match {
+      match_criteria = "IS_IN"
+      status_codes = [
+        400,
+        401,
+        403,
+        503,
+      ]
+    }
+  }
 }
