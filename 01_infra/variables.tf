@@ -11,7 +11,7 @@ variable "vsphere_server" {
 }
 
 variable "folder_name" {
-  default = "remo"
+  default = "remo-cluster-avi"
 }
 variable "vcenter_dc" {
   default = "wdc-06-vc12"
@@ -40,7 +40,7 @@ variable "dhcp" {
 }
 
 variable "avi_ip4_addresses" {
-  default = "10.206.112.55, 10.206.112.56, 10.206.112.57"
+  default = "[10.206.113.116, 10.206.113.117, 10.206.113.118]"
 }
 
 variable "network_mask" {
@@ -52,11 +52,11 @@ variable "gateway4" {
 }
 
 variable "avi_version" {
-  default = "21.1.2"
+  default = "21.1.3"
 }
 
 variable "avi_cluster" {
-  default = false
+  default = true
 }
 
 variable "avi_dns_server_ips" {

@@ -37,7 +37,7 @@ resource "avi_systemconfiguration" "avi_system" {
   common_criteria_mode      = false
   uuid                      = "default-uuid"
   welcome_workflow_complete = true
-  default_license_tier      = var.avi_license
+  #default_license_tier      = var.avi_license
   dns_configuration {
     server_list {
       addr = var.dns_servers[0]

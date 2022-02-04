@@ -40,8 +40,7 @@ variable "avi_version" {
 variable "tenant" {
   default = "admin"
 }
-variable "avi_controller" {
-  default = "10.206.114.247"
+variable "avi_controller_ips" {
 }
 
 variable "avi_license" {

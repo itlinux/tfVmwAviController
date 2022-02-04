@@ -1,8 +1,7 @@
 variable "avi_version" {
-  default = "21.1.3"
+  default = "21.1.2"
 }
 variable "avi_controller_ips" {
-  default = "10.206.114.247"
 }
 variable "avi_license" {
   default = "ENTERPRISE_WITH_CLOUD_SERVICES"
@@ -12,7 +11,7 @@ variable "avi_tenant" {
 }
 variable "avi_password" {}
 variable "avi_dns_server_ips" {
-  default = "8.8.8.8, 8.8.4.4"
+  default = "10.79.16.132, 10.79.16.133"
 }
 #max 3 NTP servers
 variable "avi_ntp_server_ips" {
@@ -23,7 +22,7 @@ variable "ntp_servers" {
   default = ["0.us.pool.ntp.org", "1.us.pool.ntp.org", "2.us.pool.ntp.org", "3.us.pool.ntp.org"]
 }
 variable "dns_servers" {
-  default = ["8.8.8.8", "8.8.4.4", "1.1.1.1"]
+  default = ["10.79.16.132", "10.79.16.133", "1.1.1.1"]
 }
 variable "mail_server_tls" {
   default = false
