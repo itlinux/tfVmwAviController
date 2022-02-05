@@ -3,7 +3,7 @@ data "avi_wafcrs" "wafcrs_2020_3" {
 }
 
 data "avi_wafprofile" "default_wafprofile" {
-  name = "System-WAF-Profile"
+  name =  var.wafprofile #"System-WAF-Profile"
 }
 
 resource "avi_wafpolicy" "custom_waf_policy" {
