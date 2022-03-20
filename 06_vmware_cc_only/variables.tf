@@ -6,14 +6,14 @@ variable "avi_password" {
 }
 
 variable "vcenter_datacenter" {
-  default = "wdc-06-vc12"
+  default = "RM-DC"
 }
 
 variable "cloud_name" {
   default = "vcenter"
 }
 variable "vcenter_network" {
-  default = "vxw-dvs-34-virtualwire-3-sid-6120002-wdc-06-vc12-avi-mgmt"
+  default = "DPort-mgmt"
 }
 
 variable "vsphere_privilege" {
@@ -21,14 +21,14 @@ variable "vsphere_privilege" {
 }
 
 variable "vsphere_user" {
-  default = "aviuser6"
+  default = "remo@rm.ht"
 }
 
 variable "vsphere_password" {
 }
 
 variable "vsphere_url" {
-  default = "10.206.12.11"
+  default = "vcenter.rm.ht"
 }
 
 variable "avi_version" {
@@ -38,6 +38,7 @@ variable "tenant" {
   default = "admin"
 }
 variable "avi_controller_ips" {
+  default = ["192.168.101.5"]
 }
 
 variable "avi_license" {

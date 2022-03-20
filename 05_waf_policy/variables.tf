@@ -1,7 +1,9 @@
 variable "avi_password" {
 }
 
-variable "avi_controller_ips" {}
+variable "avi_controller_ips" {
+  default = ["192.168.101.5"]
+}
 
 variable "avi_version" {
   default = "21.1.3"

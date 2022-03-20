@@ -1,6 +1,6 @@
 resource "null_resource" "download_avi" {
   provisioner "local-exec" {
-    command = "wget -q -O /tmp/controller.ova \"${var.avi_controller_url}\""
+    command = "curl -o /tmp/controller.ova \"${var.avi_controller_url}\""
   }
 }
 

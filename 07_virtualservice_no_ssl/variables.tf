@@ -5,19 +5,19 @@ variable "avi_password" {
 variable "avi_controller_ips" {
 }
 variable "avi_version" {
-  default = "21.1.3"
+  default = "21.1.2"
 }
 variable "avi_tenant" {
-  default = "admin"
+  default = "tenant-remo"
 }
 variable "cloud_name" {
-  default = "vcenter"
+  default = "Default-Cloud"
 }
 variable "tenant" {
-  default = "admin"
+  default = "tenant-remo"
 }
 variable "avi_terraform_vs_vip" {
-  default = "10.206.113.119"
+  default = "10.0.3.33"
 }
 variable "server1_port" {
   default = 8000
