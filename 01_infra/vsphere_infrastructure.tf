@@ -22,3 +22,10 @@ data "vsphere_network" "network" {
   name = var.vcenter_network
   datacenter_id = data.vsphere_datacenter.dc.id
 }
+
+resource "vsphere_folder" "folder" {
+  count = var.vcenter_folder == null ? 0 : 1
+  path          = var.vcenter_folder
+  type          = "vm"
+  datacenter_id = data.vsphere_datacenter.dc.id
+}

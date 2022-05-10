@@ -1,5 +1,5 @@
 variable "avi_version" {
-  default = "21.1.3"
+  default = "21.1.4"
 }
 variable "avi_controller_ips" {
    default = ["192.168.101.5"]
@@ -48,3 +48,10 @@ variable "banner" {
 variable "search_domain" {
   default = "io.local"
 }
+variable "avi_version" {}
+variable "avi_controller_ips" {}
+variable "avi_tenant" {}
+variable "avi_password" {}
+variable "avi_dns_server_ips" {}
+variable "avi_ntp_server_ips" {}
+variable "avi_default_license_tier" {}
